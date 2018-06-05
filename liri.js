@@ -57,3 +57,8 @@ function myWhat(){
       mySpotify(doSplit[1]);
     });
 }
+
+//FOR BONUS
+//===================
+// fs.appendFile(textFile, "Hello Kitty", function(err) {
+// });
