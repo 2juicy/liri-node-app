@@ -1,20 +1,20 @@
 //global scope variables
-
-
+require("dotenv").config();
+const fs = require("fs");
 const keys = require("./keys.js");
-// const envy = require("dotenv").config();
-// const request = require("request");
-// const Spotify = require('node-spotify-api');
-// const spotify = new Spotify(keys.spotify);
+const request = require("request");
+const Spotify = require('node-spotify-api');
+const spotify = new Spotify(keys.spotify);
 // const client = new Twitter(keys.twitter);
 
 
 
-const fs = require("fs");
+
 
 
 
 let action = process.argv[2];
+let arg3 = process.argv[3];
 //switch for inputs placed in function
 
   switch (action) {
@@ -23,7 +23,7 @@ let action = process.argv[2];
     break;
 
   case "spotify-this-song":
-    mySpotify(song);
+    mySpotify(arg3);
     break;
 
   case "movie-this":
@@ -43,9 +43,16 @@ function myTweets(){
     console.log('tweets go here');
 }
 function mySpotify(song){
-    console.log('spotify go here');
-    let formatSong = song.slice(1, -1);
-    console.log(formatSong);
+    if (song === undefined){
+      song = 'The Sign';
+    }
+
+    spotify.search({ type : 'track', query: song }, function(err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      } else 
+        console.log(data); 
+     });
 }
 function myMovie(){
     console.log('movies go here');
