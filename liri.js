@@ -70,10 +70,10 @@ function myMovie(movie) {
       console.log("Plot: " + movie.Plot);
       console.log("Actors: " + movie.Actors);
       fs.appendFile("log.txt", "Title: " + movie.Title + "\n" + "Year: " + movie.Year + "\n" + "IMDB Rating: " + movie.imdbRating + "\n" + "Rotten Tomatoes Rating: " + movie.Ratings[1].Value + "\n" + "Country: " + movie.Country + "\n" + "Language: " + movie.Language + "\n" + "Plot: " + movie.Plot + "\n" + "Actors: " + movie.Actors + "\n=======================================================================\n", function (err) {
-      if(err){
-        throw err;
-      }
-});
+        if(err){
+          throw err;
+        }
+      });
     } else {  
       console.log(error);
     }
