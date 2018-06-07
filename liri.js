@@ -46,7 +46,9 @@ function myTweets() {
   client.get('statuses/user_timeline', params, function (error, tweets, response) {
     if (!error) {
       for (let i = 0; i < tweets.length; i++) {
-        console.log((i + 1) + ". " + tweets[i].text + `\nCreated At: ` + tweets[i].user.created_at + '\n\n=============================================\n');
+        console.log((i + 1) + ". " + tweets[i].text + 
+          '\nCreated At: ' + tweets[i].user.created_at + 
+          '\n\n=============================================\n');
       }
     } else {
       throw error;
@@ -89,7 +91,8 @@ function myMovie(movie) {
         "\nCountry: " + movie.Country +
         "\nLanguage: " + movie.Language +
         "\nPlot: " + movie.Plot +
-        "\nActors: " + movie.Actors + "\n=============================================\n", function (err) {
+        "\nActors: " + movie.Actors + 
+        "\n=============================================\n", function (err) {
           if (err) {
             throw err;
           }
