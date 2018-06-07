@@ -52,3 +52,21 @@ Language: English
 Plot: After his swamp is filled with magical creatures, Shrek agrees to rescue Princess Fiona for a villainous lord in order to get his land back.
 Actors: Mike Myers, Eddie Murphy, Cameron Diaz, John Lithgow
 =============================================
+Title: The Notebook
+Year: 2004
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: 52%
+Country: USA
+Language: English
+Plot: A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.
+Actors: Tim Ivey, Gena Rowlands, Starletta DuPois, James Garner
+=============================================
+Title: Justice League
+Year: 2017
+IMDB Rating: 6.7
+Rotten Tomatoes Rating: 40%
+Country: USA, UK, Canada
+Language: English, Irish, Russian, Icelandic
+Plot: Fueled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne enlists the help of his newfound ally, Diana Prince, to face an even greater enemy.
+Actors: Ben Affleck, Henry Cavill, Amy Adams, Gal Gadot
+=============================================

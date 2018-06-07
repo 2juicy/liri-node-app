@@ -37,7 +37,7 @@ switch (action) {
     myWhat();
     break;
   default:
-    console.log("Invalid input.");
+    console.log("Invalid input.\n\n=============================================");
     break;
 }
 //functions for inputs
@@ -46,7 +46,7 @@ function myTweets() {
   client.get('statuses/user_timeline', params, function (error, tweets, response) {
     if (!error) {
       for (let i = 0; i < tweets.length; i++) {
-        console.log('\n=============================================\n' + (i + 1) + ". " + tweets[i].text + `\nCreated At: ` + tweets[i].user.created_at);
+        console.log((i + 1) + ". " + tweets[i].text + `\nCreated At: ` + tweets[i].user.created_at + '\n\n=============================================\n');
       }
     } else {
       throw error;
@@ -58,11 +58,12 @@ function mySpotify(song) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
-    console.log(data.tracks.items[0]);
+    // console.log(data.tracks.items[0]);
     console.log("Artist: " + data.tracks.items[0].artists[0].name +
       "\nAlbum: " + data.tracks.items[0].album.name +
       "\nSong: " + data.tracks.items[0].name +
-      "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify);
+      "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify +
+      "\n\n=============================================");
   });
 }
 function myMovie(movie) {
@@ -79,7 +80,8 @@ function myMovie(movie) {
         "\nCountry: " + movie.Country +
         "\nLanguage: " + movie.Language +
         "\nPlot: " + movie.Plot +
-        "\nActors: " + movie.Actors);
+        "\nActors: " + movie.Actors +
+        "\n\n=============================================");
       fs.appendFile("log.txt", "Title: " + movie.Title +
         "\nYear: " + movie.Year +
         "\nIMDB Rating: " + movie.imdbRating +
