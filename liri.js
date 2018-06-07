@@ -6,7 +6,6 @@ const request = require("request");
 const Spotify = require('node-spotify-api');
 const spotify = new Spotify(keys.spotify);
 // const client = new Twitter(keys.twitter);
-
 var songArr = [];
 var song = 'The Sign';
 let action = process.argv[2];
@@ -47,29 +46,36 @@ function mySpotify(song) {
   spotify.search({ type: 'track', query: song }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
-    } else
-      console.log("Artist: " + data.tracks.items[0].artists[0].name);
-    console.log("Album: " + data.tracks.items[0].album.name);
-    console.log("Song: " + data.tracks.items[0].name);
-    console.log("Spotify Link: " + data.tracks.items[0].external_urls.spotify);
+    }
+    console.log("Artist: " + data.tracks.items[0].artists[0].name +
+     "\nAlbum: " + data.tracks.items[0].album.name +
+     "\nSong: " + data.tracks.items[0].name +
+     "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify);
   });
 }
 function myMovie(movie) {
   if (song === 'The Sign') {
     song = 'Mr. Nobody.';
   }
-  request("https://www.omdbapi.com/?t=" + song + "&y=&plot=short&tomatoes=true&apikey=trilogy", function (error, response, body) {
+  request("https://www.omdbapi.com/?t=" + song + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
     if (!error && response.statusCode == 200) {
       let movie = JSON.parse(body);
-      console.log("Title: " + movie.Title);
-      console.log("Year: " + movie.Year);
-      console.log("IMDB Rating: " + movie.imdbRating);
-      console.log("Rotten Tomatoes Rating: " + movie.Ratings[1].Value);
-      console.log("Country: " + movie.Country);
-      console.log("Language: " + movie.Language);
-      console.log("Plot: " + movie.Plot);
-      console.log("Actors: " + movie.Actors);
-      fs.appendFile("log.txt", "Title: " + movie.Title + "\n" + "Year: " + movie.Year + "\n" + "IMDB Rating: " + movie.imdbRating + "\n" + "Rotten Tomatoes Rating: " + movie.Ratings[1].Value + "\n" + "Country: " + movie.Country + "\n" + "Language: " + movie.Language + "\n" + "Plot: " + movie.Plot + "\n" + "Actors: " + movie.Actors + "\n=======================================================================\n", function (err) {
+      console.log("Title: " + movie.Title +
+        "\nYear: " + movie.Year +
+        "\nIMDB Rating: " + movie.imdbRating +
+        "\nRotten Tomatoes Rating: " + movie.Ratings[1].Value +
+        "\nCountry: " + movie.Country +
+        "\nLanguage: " + movie.Language +
+        "\nPlot: " + movie.Plot +
+        "\nActors: " + movie.Actors);
+      fs.appendFile("log.txt", "Title: " + movie.Title + 
+        "\nYear: " + movie.Year + 
+        "\nIMDB Rating: " + movie.imdbRating + 
+        "\nRotten Tomatoes Rating: " + movie.Ratings[1].Value + 
+        "\nCountry: " + movie.Country + 
+        "\nLanguage: " + movie.Language + 
+        "\nPlot: " + movie.Plot + 
+        "\nActors: " + movie.Actors + "\n=======================================================================\n", function (err) {
         if(err){
           throw err;
         }
