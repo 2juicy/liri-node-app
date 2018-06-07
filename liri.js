@@ -76,9 +76,9 @@ function myMovie(movie) {
         "\nLanguage: " + movie.Language + 
         "\nPlot: " + movie.Plot + 
         "\nActors: " + movie.Actors + "\n=======================================================================\n", function (err) {
-        if(err){
-          throw err;
-        }
+      if(err){
+        throw err;
+      }
       });
     } else {  
       console.log(error);
