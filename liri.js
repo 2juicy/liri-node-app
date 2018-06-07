@@ -2,10 +2,12 @@
 require("dotenv").config();
 const fs = require("fs");
 const keys = require("./keys.js");
+console.log('=============================================\n');
 const request = require("request");
 const Spotify = require('node-spotify-api');
 const spotify = new Spotify(keys.spotify);
-// const client = new Twitter(keys.twitter);
+const Twitter = require('twitter');
+const client = new Twitter(keys.twitter);
 var songArr = [];
 var song = 'The Sign';
 let action = process.argv[2];
@@ -40,7 +42,16 @@ switch (action) {
 }
 //functions for inputs
 function myTweets() {
-  console.log('tweets go here');
+  let params = { screen_name: 'lyonandthepryde' };
+  client.get('statuses/user_timeline', params, function (error, tweets, response) {
+    if (!error) {
+      for (let i = 0; i < tweets.length; i++) {
+        console.log('\n=============================================\n' + (i + 1) + ". " + tweets[i].text + `\nCreated At: ` + tweets[i].user.created_at);
+      }
+    } else {
+      throw error;
+    }
+  });
 }
 function mySpotify(song) {
   spotify.search({ type: 'track', query: song }, function (err, data) {
@@ -48,9 +59,9 @@ function mySpotify(song) {
       return console.log('Error occurred: ' + err);
     }
     console.log("Artist: " + data.tracks.items[0].artists[0].name +
-     "\nAlbum: " + data.tracks.items[0].album.name +
-     "\nSong: " + data.tracks.items[0].name +
-     "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify);
+      "\nAlbum: " + data.tracks.items[0].album.name +
+      "\nSong: " + data.tracks.items[0].name +
+      "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify);
   });
 }
 function myMovie(movie) {
@@ -68,19 +79,19 @@ function myMovie(movie) {
         "\nLanguage: " + movie.Language +
         "\nPlot: " + movie.Plot +
         "\nActors: " + movie.Actors);
-      fs.appendFile("log.txt", "Title: " + movie.Title + 
-        "\nYear: " + movie.Year + 
-        "\nIMDB Rating: " + movie.imdbRating + 
-        "\nRotten Tomatoes Rating: " + movie.Ratings[1].Value + 
-        "\nCountry: " + movie.Country + 
-        "\nLanguage: " + movie.Language + 
-        "\nPlot: " + movie.Plot + 
-        "\nActors: " + movie.Actors + "\n=======================================================================\n", function (err) {
-      if(err){
-        throw err;
-      }
-      });
-    } else {  
+      fs.appendFile("log.txt", "Title: " + movie.Title +
+        "\nYear: " + movie.Year +
+        "\nIMDB Rating: " + movie.imdbRating +
+        "\nRotten Tomatoes Rating: " + movie.Ratings[1].Value +
+        "\nCountry: " + movie.Country +
+        "\nLanguage: " + movie.Language +
+        "\nPlot: " + movie.Plot +
+        "\nActors: " + movie.Actors + "\n=============================================\n", function (err) {
+          if (err) {
+            throw err;
+          }
+        });
+    } else {
       console.log(error);
     }
   });
