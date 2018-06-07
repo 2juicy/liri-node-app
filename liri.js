@@ -58,6 +58,7 @@ function mySpotify(song) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
+    console.log(data.tracks.items[0]);
     console.log("Artist: " + data.tracks.items[0].artists[0].name +
       "\nAlbum: " + data.tracks.items[0].album.name +
       "\nSong: " + data.tracks.items[0].name +
