@@ -2,7 +2,6 @@
 require("dotenv").config();
 const fs = require("fs");
 const keys = require("./keys.js");
-console.log('=============================================\n');
 const request = require("request");
 const Spotify = require('node-spotify-api');
 const spotify = new Spotify(keys.spotify);
@@ -19,6 +18,7 @@ if (process.argv.length > 3) {
   }
   song = songArr.join(' ');
 }
+console.log('=============================================\n');
 //switch for inputs placed in function
 switch (action) {
   case "my-tweets":
