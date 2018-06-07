@@ -1,10 +1,13 @@
 //global scope variables
 
+
+const keys = require("./keys.js");
 // const envy = require("dotenv").config();
-const keys = require("./keys.js")
+// const request = require("request");
+// const Spotify = require('node-spotify-api');
 // const spotify = new Spotify(keys.spotify);
 // const client = new Twitter(keys.twitter);
-// const request = require("request");
+
 
 
 const fs = require("fs");
