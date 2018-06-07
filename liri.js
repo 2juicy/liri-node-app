@@ -64,14 +64,17 @@ function myMovie(movie) {
       console.log("Title: " + movie.Title);
       console.log("Year: " + movie.Year);
       console.log("IMDB Rating: " + movie.imdbRating);
-      console.log("Rotten Tomatoes Rating: " + movie.tomatoUserRating);
+      console.log("Rotten Tomatoes Rating: " + movie.Ratings[1].Value);
       console.log("Country: " + movie.Country);
       console.log("Language: " + movie.Language);
       console.log("Plot: " + movie.Plot);
       console.log("Actors: " + movie.Actors);
-      fs.appendFile("log.txt", "Title: " + movie.Title + "\n" + "Year: " + movie.Year + "\n" + "IMDB Rating: " + movie.imdbRating + "\n" + "Rotten Tomatoes Rating: " + movie.tomatoUserRating + "\n" + "Country: " + movie.Country + "\n" + "Language: " + movie.Language + "\n" + "Plot: " + movie.Plot + "\n" + "Actors: " + movie.Actors + "\n=======================================================================\n");
-    }
-    else {  
+      fs.appendFile("log.txt", "Title: " + movie.Title + "\n" + "Year: " + movie.Year + "\n" + "IMDB Rating: " + movie.imdbRating + "\n" + "Rotten Tomatoes Rating: " + movie.Ratings[1].Value + "\n" + "Country: " + movie.Country + "\n" + "Language: " + movie.Language + "\n" + "Plot: " + movie.Plot + "\n" + "Actors: " + movie.Actors + "\n=======================================================================\n", function (err) {
+      if(err){
+        throw err;
+      }
+});
+    } else {  
       console.log(error);
     }
   });
