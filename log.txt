@@ -70,3 +70,12 @@ Language: English, Irish, Russian, Icelandic
 Plot: Fueled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne enlists the help of his newfound ally, Diana Prince, to face an even greater enemy.
 Actors: Ben Affleck, Henry Cavill, Amy Adams, Gal Gadot
 =============================================
+Title: The Matrix
+Year: 1999
+IMDB Rating: 8.7
+Rotten Tomatoes Rating: 87%
+Country: USA
+Language: English
+Plot: A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.
+Actors: Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+=============================================

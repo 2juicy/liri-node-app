@@ -8,8 +8,8 @@ const Spotify = require('node-spotify-api');
 const spotify = new Spotify(keys.spotify);
 const Twitter = require('twitter');
 const client = new Twitter(keys.twitter);
-var songArr = [];
-var song = 'The Sign';
+let songArr = [];
+let song = 'The Sign';
 let action = process.argv[2];
 //Check length of arguments and takes input and joins.
 if (process.argv.length > 3) {
@@ -104,7 +104,7 @@ function myWhat() {
     if (error) {
       return console.log(error);
     }
-    var doSplit = data.split(",");
+    let doSplit = data.split(",");
     mySpotify(doSplit[1]);
   });
 }
