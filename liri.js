@@ -57,8 +57,7 @@ function myTweets() {
           }
         });
       }
-    } else {
-      throw error;
+    console.log("File saved!");
     }
   });
 }
@@ -81,6 +80,7 @@ function mySpotify(song) {
           if (err) {
             throw err;
           }
+      console.log("File saved!");
         });
   });
 }
@@ -113,9 +113,9 @@ function myMovie(movie) {
             throw err;
           }
         });
-    } else {
-      console.log(error);
+    console.log("File saved!");
     }
+  
   });
 }
 function myWhat() {
