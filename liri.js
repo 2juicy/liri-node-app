@@ -49,6 +49,13 @@ function myTweets() {
         console.log((i + 1) + ". " + tweets[i].text + 
           '\nCreated At: ' + tweets[i].user.created_at + 
           '\n\n=============================================\n');
+        fs.appendFile("log.txt", (i + 1) + ". " + tweets[i].text + 
+          '\nCreated At: ' + tweets[i].user.created_at + 
+          '\n=============================================\n', function (err) {
+          if (err) {
+            throw err;
+          }
+        });
       }
     } else {
       throw error;
@@ -66,6 +73,15 @@ function mySpotify(song) {
       "\nSong: " + data.tracks.items[0].name +
       "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify +
       "\n\n=============================================");
+    fs.appendFile("log.txt", "Artist: " + data.tracks.items[0].artists[0].name +
+      "\nAlbum: " + data.tracks.items[0].album.name +
+      "\nSong: " + data.tracks.items[0].name +
+      "\nSpotify Link: " + data.tracks.items[0].external_urls.spotify +
+      "\n=============================================\n", function (err) {
+          if (err) {
+            throw err;
+          }
+        });
   });
 }
 function myMovie(movie) {
