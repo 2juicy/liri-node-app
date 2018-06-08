@@ -58,7 +58,7 @@ function myTweets() {
 function mySpotify(song) {
   spotify.search({ type: 'track', query: song }, function (err, data) {
     if (err) {
-      return console.log('Error occurred: ' + err);
+      return console.log('Error occurred: This search has no results');
     }
     // console.log(data.tracks.items[0]);
     console.log("Artist: " + data.tracks.items[0].artists[0].name +
